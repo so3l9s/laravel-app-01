@@ -50,13 +50,14 @@ services:
             timeout: 5s
     phpmyadmin:
         image: phpmyadmin/phpmyadmin
-        depends_on:
-            - mysql
+        platform: linux/x86_64
+        links:
+            - mysql:mysql
         ports:
             - 8888:80
         environment:
-            PMA_USER: '${DB_USERNAME}'
-            PMA_PASSWORD: '${DB_PASSWORD}'
+            MYSQL_USERNAME: '${DB_USERNAME}'
+            MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
             PMA_HOST: mysql
         networks:
             - sail

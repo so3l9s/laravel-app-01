@@ -14,6 +14,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 });
 
+// TODO 表示側を作成
+
 Route::prefix('admin')->middleware('auth')->name('admin.')->group(function () {
 
     // 管理者管理
@@ -21,22 +23,22 @@ Route::prefix('admin')->middleware('auth')->name('admin.')->group(function () {
 
     // 投稿管理
     Route::resource('posts', PostAdminController::class)->names([
-        'index'   => 'admin.posts.index',
-        'create'  => 'admin.posts.create',
-        'store'   => 'admin.posts.store',
-        'show'    => 'admin.posts.show',
-        'edit'    => 'admin.posts.edit',
-        'update'  => 'admin.posts.update',
-        'destroy' => 'admin.posts.destroy',
+        'index'   => 'posts.index',
+        'create'  => 'posts.create',
+        'store'   => 'posts.store',
+        'show'    => 'posts.show',
+        'edit'    => 'posts.edit',
+        'update'  => 'posts.update',
+        'destroy' => 'posts.destroy',
     ]);
 
     // カテゴリー管理
     Route::resource('category', CategoryAdminController::class)->names([
-        'index'   => 'admin.category.index',
-        'create'  => 'admin.category.create',
-        'store'   => 'admin.category.store',
-        'edit'    => 'admin.category.edit',
-        'update'  => 'admin.category.update',
-        'destroy' => 'admin.category.destroy',
+        'index'   => 'category.index',
+        'create'  => 'category.create',
+        'store'   => 'category.store',
+        'edit'    => 'category.edit',
+        'update'  => 'category.update',
+        'destroy' => 'category.destroy',
     ]);
 });

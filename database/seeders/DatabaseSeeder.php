@@ -16,6 +16,12 @@ class DatabaseSeeder extends Seeder
         $this->call([
             CategorySeeder::class,
             PostSeeder::class,
-        ]);        
+        ]);
+
+        User::factory()->create([
+            'name' => 'admin',
+            'email' => 'experiment@adatype.co.jp',
+            'password' => bcrypt('password'),
+        ]);
     }
 }

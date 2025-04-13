@@ -25,6 +25,7 @@ class UserController extends Controller
     // 保存処理
     public function store(Request $request)
     {
+        // TODO フォームリクエストを使用
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
@@ -49,6 +50,7 @@ class UserController extends Controller
     // 更新処理
     public function update(Request $request, User $user)
     {
+        // TODO フォームリクエストを使用
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => "required|email|unique:users,email,{$user->id}",

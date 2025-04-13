@@ -25,6 +25,7 @@ class PostAdminController extends Controller
 
     public function store(Request $request)
     {
+        // TODO フォームリクエストを使用
         // バリデーション
         $request->validate([
             'title' => 'required|max:255',
@@ -61,6 +62,7 @@ class PostAdminController extends Controller
 
     public function update(Request $request, Post $post)
     {
+        // TODO フォームリクエストを使用
         // バリデーション
         $request->validate([
             'title' => 'required|max:255',
@@ -93,6 +95,7 @@ class PostAdminController extends Controller
         // サムネイル画像を削除
         Storage::disk('public')->delete($post->thumbnail);
 
+        // TODO なくても良い
         // カテゴリーの関連付けを解除
         $post->categories()->detach();
 
